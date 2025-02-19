@@ -7,13 +7,14 @@ import { Card } from "@/components/ui/card";
 import { DraggableAnimal } from "@/components/game/DraggableAnimal";
 import { HabitatZone } from "@/components/game/HabitatZone";
 import { useSound } from "@/hooks/use-sound";
-import { Trophy } from "lucide-react";
+import { Trophy, Lightbulb } from "lucide-react";
 
 const animals = [
-  { id: "penguin", name: "Penguin", habitat: "arctic", image: "/placeholder.svg" },
-  { id: "camel", name: "Camel", habitat: "desert", image: "/placeholder.svg" },
-  { id: "monkey", name: "Monkey", habitat: "jungle", image: "/placeholder.svg" },
-  { id: "deer", name: "Deer", habitat: "forest", image: "/placeholder.svg" },
+  { id: "penguin", name: "Penguin", habitat: "arctic", image: "/placeholder.svg", hint: "I love the cold and snow!" },
+  { id: "camel", name: "Camel", habitat: "desert", image: "/placeholder.svg", hint: "I can survive with very little water!" },
+  { id: "monkey", name: "Monkey", habitat: "jungle", image: "/placeholder.svg", hint: "I love swinging from tree to tree!" },
+  { id: "deer", name: "Deer", habitat: "forest", image: "/placeholder.svg", hint: "I live among tall trees and green plants!" },
+  { id: "polar-bear", name: "Polar Bear", habitat: "arctic", image: "/placeholder.svg", hint: "My white fur helps me blend with the ice!" },
 ];
 
 const habitats = [
@@ -23,9 +24,14 @@ const habitats = [
   { id: "forest", name: "Forest", image: "/placeholder.svg" },
 ];
 
+type IncorrectAttempts = {
+  [key: string]: number;
+};
+
 export default function Index() {
   const [matches, setMatches] = useState<string[]>([]);
   const [progress, setProgress] = useState(0);
+  const [incorrectAttempts, setIncorrectAttempts] = useState<IncorrectAttempts>({});
   const sensors = useSensors(useSensor(PointerSensor, {
     activationConstraint: {
       distance: 8,
@@ -42,8 +48,27 @@ export default function Index() {
       toast.success("Congratulations! You've matched all animals to their habitats!", {
         duration: 5000,
       });
+      // Trigger celebratory animation by adding a class to body
+      document.body.classList.add("celebration");
+      // Remove class after animation
+      setTimeout(() => {
+        document.body.classList.remove("celebration");
+      }, 3000);
     }
   }, [matches]);
+
+  const showHint = (animalId: string) => {
+    const animal = animals.find(a => a.id === animalId);
+    if (animal) {
+      toast.info(
+        <div className="flex items-center gap-2">
+          <Lightbulb className="h-5 w-5 text-yellow-400 animate-bounce-subtle" />
+          <span>Hint: {animal.hint}</span>
+        </div>,
+        { duration: 5000 }
+      );
+    }
+  };
 
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
@@ -57,10 +82,31 @@ export default function Index() {
     if (animal?.habitat === habitatId) {
       playSuccess();
       setMatches(prev => [...prev, animalId]);
-      toast.success(`Great job! ${animal.name} loves the ${habitatId}!`);
+      toast.success(`Great job! ${animal.name} loves the ${habitatId}!`, {
+        className: "animate-scale-in",
+      });
+      // Reset incorrect attempts for this animal
+      setIncorrectAttempts(prev => ({
+        ...prev,
+        [animalId]: 0
+      }));
     } else {
       playError();
-      toast.error("Try again! That's not the right habitat.");
+      // Increment incorrect attempts
+      const newAttempts = {
+        ...incorrectAttempts,
+        [animalId]: (incorrectAttempts[animalId] || 0) + 1
+      };
+      setIncorrectAttempts(newAttempts);
+      
+      // Show hint after 3 incorrect attempts
+      if (newAttempts[animalId] === 3) {
+        showHint(animalId);
+      }
+      
+      toast.error("Try again! That's not the right habitat.", {
+        className: "animate-shake",
+      });
     }
   };
 
