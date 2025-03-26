@@ -10,18 +10,18 @@ import { useSound } from "@/hooks/use-sound";
 import { Trophy, Lightbulb } from "lucide-react";
 
 const animals = [
-  { id: "penguin", name: "Penguin", habitat: "arctic", image: "/placeholder.svg", hint: "I love the cold and snow!" },
-  { id: "camel", name: "Camel", habitat: "desert", image: "/placeholder.svg", hint: "I can survive with very little water!" },
-  { id: "monkey", name: "Monkey", habitat: "jungle", image: "/placeholder.svg", hint: "I love swinging from tree to tree!" },
-  { id: "deer", name: "Deer", habitat: "forest", image: "/placeholder.svg", hint: "I live among tall trees and green plants!" },
-  { id: "polar-bear", name: "Polar Bear", habitat: "arctic", image: "/placeholder.svg", hint: "My white fur helps me blend with the ice!" },
+  { id: "penguin", name: "Penguin", habitat: "arctic", image: "https://plus.unsplash.com/premium_photo-1661816797370-928a8749043c?q=80&w=1473&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", hint: "I love the cold and snow!" },
+  { id: "camel", name: "Camel", habitat: "desert", image: "https://images.unsplash.com/photo-1553983658-0d7afeb5c53f?q=80&w=1335&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", hint: "I can survive with very little water!" },
+  { id: "monkey", name: "Monkey", habitat: "jungle", image: "https://plus.unsplash.com/premium_photo-1664299631876-f143dc691c4d?q=80&w=1297&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", hint: "I love swinging from tree to tree!" },
+  { id: "deer", name: "Deer", habitat: "forest", image: "https://plus.unsplash.com/premium_photo-1661819541230-034d07819c9b?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", hint: "I live among tall trees and green plants!" },
+  { id: "polar-bear", name: "Polar Bear", habitat: "arctic", image: "https://plus.unsplash.com/premium_photo-1723040527350-3baeab1954bf?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", hint: "My white fur helps me blend with the ice!" },
 ];
 
 const habitats = [
-  { id: "arctic", name: "Arctic", image: "/placeholder.svg" },
-  { id: "desert", name: "Desert", image: "/placeholder.svg" },
-  { id: "jungle", name: "Jungle", image: "/placeholder.svg" },
-  { id: "forest", name: "Forest", image: "/placeholder.svg" },
+  { id: "arctic", name: "Arctic", image: "https://images.unsplash.com/photo-1418985991508-e47386d96a71?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { id: "desert", name: "Desert", image: "https://images.unsplash.com/photo-1511860810434-a92f84c6f01e?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { id: "jungle", name: "Jungle", image: "https://plus.unsplash.com/premium_photo-1687428554393-abae29906c75?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { id: "forest", name: "Forest", image: "https://images.unsplash.com/photo-1542202229-7d93c33f5d07?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
 ];
 
 type IncorrectAttempts = {

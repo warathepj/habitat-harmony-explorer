@@ -1,69 +1,80 @@
-# Welcome to your Lovable project
+# Animal Habitat Explorer
 
-## Project info
+An interactive educational game where players match animals to their natural habitats. Built with React, TypeScript, and shadcn/ui components.
 
-**URL**: https://lovable.dev/projects/20663ed5-8137-4fad-85ed-ca1cc797a30d
+## 🚀 Quick Start
 
-## How can I edit this code?
+1. **Prerequisites**
 
-There are several ways of editing your application.
+   - Node.js (recommended to install via [nvm](https://github.com/nvm-sh/nvm#installing-and-updating))
+   - npm (comes with Node.js)
 
-**Use Lovable**
+2. **Installation**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/20663ed5-8137-4fad-85ed-ca1cc797a30d) and start prompting.
+   ```bash
+   # Clone the repository
+   git clone https://github.com/warathepj/habitat-harmony-explorer.git
 
-Changes made via Lovable will be committed automatically to this repo.
+   # Navigate to project directory
+   cd habitat-harmony-explorer
 
-**Use your preferred IDE**
+   # Install dependencies
+   npm install
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+   # Start development server
+   npm run dev
+   ```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+   The app will be available at `http://localhost:8080`
 
-Follow these steps:
+## 🛠️ Tech Stack
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- **Framework:** React 18
+- **Build Tool:** Vite
+- **Language:** TypeScript
+- **UI Components:** shadcn/ui
+- **Styling:** Tailwind CSS
+- **State Management:** React Query
+- **Routing:** React Router DOM
+- **Form Handling:** React Hook Form
+- **Validation:** Zod
+- **Development Tools:**
+  - ESLint
+  - PostCSS
+  - Autoprefixer
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 📁 Project Structure
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+src/
+├── components/     # Reusable UI components
+├── pages/         # Page components
+├── lib/          # Utility functions and helpers
+├── hooks/        # Custom React hooks
+└── App.tsx       # Main application component
 ```
 
-**Edit a file directly in GitHub**
+## 🔧 Available Scripts
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run build:dev` - Build for development
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-**Use GitHub Codespaces**
+## 🌐 Deployment
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+This project can be deployed in two ways:
 
-## What technologies are used for this project?
+1. **Via Lovable:**
 
-This project is built with .
+   - Visit [Lovable Project](https://lovable.dev/projects/20663ed5-8137-4fad-85ed-ca1cc797a30d)
+   - Click on Share -> Publish
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+2. **Custom Domain:**
+   - While custom domains aren't directly supported, you can deploy to Netlify
+   - For more details, visit: [Custom domains documentation](https://docs.lovable.dev/tips-tricks/custom-domain/)
 
-## How can I deploy this project?
+## 📄 License
 
-Simply open [Lovable](https://lovable.dev/projects/20663ed5-8137-4fad-85ed-ca1cc797a30d) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+This project is licensed under the MIT License - see the LICENSE file for details.
